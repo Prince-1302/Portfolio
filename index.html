@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prince Kumar — Full-Stack Developer & AI Engineer</title>
+  <meta name="description" content="Prince Kumar — Full-Stack Developer, AI Engineer & Civil Tech Innovator at NIT Agartala. Building intelligent systems that shape the future." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- COSMIC CANVAS -->
+  <canvas id="cosmicCanvas"></canvas>
+
+  <!-- CURSOR -->
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">
+        <span class="loader-pk">PK</span>
+        <div class="loader-rings">
+          <div class="lr lr1"></div>
+          <div class="lr lr2"></div>
+          <div class="lr lr3"></div>
+        </div>
+      </div>
+      <div class="loader-bar-wrap">
+        <div class="loader-bar"><div class="loader-fill"></div></div>
+        <div class="loader-percent" id="loaderPercent">0%</div>
+      </div>
+      <div class="loader-text">Initializing Universe<span class="dots">...</span></div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav id="navbar">
+    <div class="nav-logo">
+      <span class="logo-bracket">&lt;</span>PK<span class="logo-bracket">/&gt;</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#hero"         class="nav-link" data-section="hero">Home</a></li>
+      <li><a href="#about"        class="nav-link" data-section="about">About</a></li>
+      <li><a href="#experience"   class="nav-link" data-section="experience">Experience</a></li>
+      <li><a href="#skills"       class="nav-link" data-section="skills">Skills</a></li>
+      <li><a href="#projects"     class="nav-link" data-section="projects">Projects</a></li>
+      <li><a href="#achievements" class="nav-link" data-section="achievements">Awards</a></li>
+      <li><a href="#education"    class="nav-link" data-section="education">Education</a></li>
+      <li><a href="#contact"      class="nav-link" data-section="contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      </button>
+      <a href="#contact" class="nav-cta">Let's Talk</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#hero"         class="mobile-link">Home</a></li>
+      <li><a href="#about"        class="mobile-link">About</a></li>
+      <li><a href="#experience"   class="mobile-link">Experience</a></li>
+      <li><a href="#skills"       class="mobile-link">Skills</a></li>
+      <li><a href="#projects"     class="mobile-link">Projects</a></li>
+      <li><a href="#achievements" class="mobile-link">Awards</a></li>
+      <li><a href="#education"    class="mobile-link">Education</a></li>
+      <li><a href="#contact"      class="mobile-link">Contact</a></li>
+    </ul>
+    <button id="themeToggleMobile" class="theme-toggle-mobile">
+      <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      Toggle Theme
+    </button>
+  </div>
+
+  <!-- ═══ HERO ═══ -->
+  <section id="hero">
+    <!-- Floating particles -->
+    <div class="hero-particles" id="heroParticles"></div>
+
+    <div class="hero-wrapper">
+      <div class="hero-left">
+        <div class="hero-eyebrow reveal-up">
+          <span class="badge-dot"></span>
+          <span>Available for Internships &amp; Collaborations</span>
+          <span class="badge-year">2026</span>
+        </div>
+
+        <h1 class="hero-name reveal-up">
+          <span class="hero-hi">Hi, I'm</span>
+          <span class="name-word">Prince</span>
+          <span class="name-word gradient-text">Kumar</span>
+        </h1>
+
+        <div class="hero-typewriter reveal-up">
+          <span class="tw-prefix">I engineer </span>
+          <span class="tw-cursor">
+            <span class="tw-text" id="twText">AI-Powered Platforms</span>
+            <span class="tw-bar">|</span>
+          </span>
+        </div>
+
+        <p class="hero-bio reveal-up">
+          Civil Engineering student at <strong>NIT Agartala</strong> with a deep passion for 
+          Artificial Intelligence &amp; Data-Analyst. Building systems that solve 
+          real-world problems — from AI traffic platforms to food waste reduction with ML.
+        </p>
+
+        <!-- Code snippet card -->
+        <div class="hero-code-card glass-card reveal-up">
+          <div class="code-header">
+            <div class="code-dots">
+              <span class="cd red"></span>
+              <span class="cd yellow"></span>
+              <span class="cd green"></span>
+            </div>
+            <span class="code-filename">prince_kumar.py</span>
+          </div>
+          <pre class="code-body"><span class="c-kw">class</span> <span class="c-cls">PrinceKumar</span>:
+  <span class="c-kw">def</span> <span class="c-fn">__init__</span>(self):
+    self.role    = <span class="c-str">"Full-Stack AI Developer"</span>
+    self.college = <span class="c-str">"NIT Agartala"</span>
+    self.cgpa    = <span class="c-num">8.5</span>
+    self.stack   = [<span class="c-str">"Python"</span>, <span class="c-str">"React"</span>, <span class="c-str">"Flask"</span>]
+    self.open_to = <span class="c-str">"Opportunities 🚀"</span></pre>
+        </div>
+
+        <div class="hero-ctas reveal-up">
+          <a href="#projects" class="btn-primary">
+            <span>View My Work</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#contact" class="btn-ghost">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>Say Hello</span>
+          </a>
+          <a href="https://github.com/Prince-1302" target="_blank" class="btn-icon" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          </a>
+        </div>
+
+        <div class="hero-stats reveal-up">
+          <div class="hstat">
+            <div class="hstat-val" data-target="2">0</div>
+            <div class="hstat-key">AI Projects</div>
+          </div>
+          <div class="hstat-sep"></div>
+          <div class="hstat">
+            <div class="hstat-val" data-target="4">0</div>
+            <div class="hstat-key">Hackathon Wins</div>
+          </div>
+          <div class="hstat-sep"></div>
+          <div class="hstat">
+            <div class="hstat-val suffix" data-target="85">0</div>
+            <div class="hstat-key">Skill Level %</div>
+          </div>
+          <div class="hstat-sep"></div>
+          <div class="hstat">
+            <div class="hstat-val suffix" data-target="7" data-suffix="%">0</div>
+            <div class="hstat-key">Top JEE Rank</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right reveal-right">
+        <div class="profile-universe">
+          <!-- Outer glow -->
+          <div class="pu-glow"></div>
+
+          <!-- Orbit rings -->
+          <div class="pu-orbit orbit-1">
+            <div class="orbit-planet p-blue" style="--angle:0deg"></div>
+          </div>
+          <div class="pu-orbit orbit-2">
+            <div class="orbit-planet p-purple" style="--angle:60deg"></div>
+          </div>
+          <div class="pu-orbit orbit-3">
+            <div class="orbit-planet p-cyan" style="--angle:120deg"></div>
+          </div>
+
+          <!-- Profile image -->
+          <div class="profile-hexagon">
+            <img src="assets/hero_profile_new.jpeg" alt="Prince Kumar" id="profileImg" />
+            <div class="profile-hex-border"></div>
+          </div>
+
+          <!-- Floating info chips -->
+          <div class="info-chip chip-top glass-card">
+            <div class="chip-icon"></div>
+            <div>
+              <div class="chip-title">NIT Agartala</div>
+              <div class="chip-sub">CGPA: 8.5 · B.Tech</div>
+            </div>
+          </div>
+          <div class="info-chip chip-left glass-card">
+            <div class="chip-icon"></div>
+            <div>
+              <div class="chip-title">National Finalist</div>
+              <div class="chip-sub">L&T Createch 2026</div>
+            </div>
+          </div>
+          <div class="info-chip chip-right glass-card">
+            <div class="chip-icon"></div>
+            <div>
+              <div class="chip-title">Open Source</div>
+              <div class="chip-sub">GSSoC 2026</div>
+            </div>
+          </div>
+          <div class="info-chip chip-bottom glass-card">
+            <div class="chip-icon"></div>
+            <div>
+              <div class="chip-title">AI Developer</div>
+              <div class="chip-sub">ML & Full-Stack</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll cue -->
+    <a href="#about" class="scroll-cue">
+      <div class="sc-mouse">
+        <div class="sc-wheel"></div>
+      </div>
+      <span>Scroll to explore</span>
+    </a>
+  </section>
+
+  <!-- ═══ ABOUT ═══ -->
+  <section id="about">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag reveal-up">About Me</span>
+        <h2 class="section-title reveal-up">Bridging Engineering<br/><em class="gradient-text">with Intelligence</em></h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-left reveal-left">
+          <p class="about-lead">I'm a Civil Engineering student at <strong>NIT Agartala</strong> who discovered a passion for software — and never looked back.</p>
+          <p class="about-body">My journey began with a curiosity about how intelligent systems can solve infrastructure and societal challenges. From building AI-powered traffic management platforms to developing food waste reduction systems using Machine Learning, I operate at the intersection of <em>engineering rigor</em> and <em>software innovation</em>.</p>
+          <p class="about-body">I've contributed to open-source through GSSoC 2026, completed the McKinsey Forward Program, interned at <strong>Banaras Locomotive Works (Indian Railways)</strong>, and competed at the highest level of national hackathons.</p>
+          <div class="about-social">
+            <a href="mailto:princekumarg197@gmail.com" class="social-chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Email Me
+            </a>
+            <a href="https://github.com/Prince-1302" target="_blank" class="social-chip">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/prince-kumar-ab3360349" target="_blank" class="social-chip">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+        <div class="about-right reveal-right">
+          <div class="about-cards-grid">
+            <div class="abt-card glass-card" data-tilt>
+              <div class="abt-icon"></div>
+              <h3>Builder Mindset</h3>
+              <p>I architect solutions that create real-world impact — from AI traffic systems to food waste reduction at scale.</p>
+            </div>
+            <div class="abt-card glass-card" data-tilt>
+              <div class="abt-icon"></div>
+              <h3>AI-First Approach</h3>
+              <p>Scikit-Learn, Random Forest, Google Gemini AI integration, and predictive modeling are my core tools.</p>
+            </div>
+            <div class="abt-card glass-card" data-tilt>
+              <div class="abt-icon"></div>
+              <h3>Full-Stack Ready</h3>
+              <p>Flask REST APIs to Next.js frontends with TypeScript — deployed on Vercel &amp; Render with CI/CD.</p>
+            </div>
+            <div class="abt-card glass-card" data-tilt>
+              <div class="abt-icon"></div>
+              <h3>Competitive Edge</h3>
+              <p>Top 7% JEE Mains, National Finalist L&T Createch, Grand Finalist MumbaiHacks — I compete to win.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ EXPERIENCE ═══ -->
+  <section id="experience">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag reveal-up">Work History</span>
+        <h2 class="section-title reveal-up">Experience &amp;<br/><em class="gradient-text">Contributions</em></h2>
+        <p class="section-desc reveal-up">Every role shaped how I think, build, and lead.</p>
+      </div>
+
+      <div class="exp-timeline">
+
+<!-- BLW Internship -->
+        <div class="exp-entry reveal-up" style="--sticky-offset: 120px; z-index: 10;">
+          <div class="exp-timeline-line">
+            <div class="exp-dot dot-blue"></div>
+            <div class="exp-connector"></div>
+          </div>
+          <div class="exp-card glass-card">
+            <div class="exp-card-header">
+              <div class="exp-org-badge badge-railways" style="overflow: hidden;">
+                <img src="assets/banaras_locomotive.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="BLW" />
+              </div>
+              <div class="exp-card-meta">
+                <div class="exp-org-name">Banaras Locomotive Works — Indian Railways</div>
+                <div class="exp-role-name">Summer Intern</div>
+                <div class="exp-meta-row">
+                  <span class="exp-type-badge internship">Internship</span>
+                  <span class="exp-date-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    Jun 2026 · 1 month
+                  </span>
+                  <span class="exp-loc-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Varanasi, UP · On-site
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="exp-card-body">
+              <p>Gained hands-on experience in railway civil infrastructure maintenance, STP operations, water supply systems, site inspections, material quality assessment, and project supervision under the <strong>Inspector of Works (IOW)</strong> at BLW.</p>
+              <ul class="exp-bullets">
+                <li>Performed site measurements, material inspections, and contractor supervision</li>
+                <li>Assisted in inspection &amp; maintenance of railway civil infrastructure — buildings, roads, drainage, sewerage, and water supply systems</li>
+                <li>Gained exposure to STP operations, safety compliance, and engineering documentation</li>
+              </ul>
+              <div class="exp-skills">
+                <span>Civil Infrastructure</span>
+                <span>STP Operations</span>
+                <span>Project Supervision</span>
+                <span>Safety Compliance</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GSSoC Contributor -->
+        <div class="exp-entry reveal-up" style="--sticky-offset: 140px; z-index: 11;">
+          <div class="exp-timeline-line">
+            <div class="exp-dot dot-green"></div>
+            <div class="exp-connector"></div>
+          </div>
+          <div class="exp-card glass-card">
+            <div class="exp-card-header">
+              <div class="exp-org-badge badge-gssoc" style="overflow: hidden;">
+                <img src="assets/gssoc.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="GSSoC" />
+              </div>
+              <div class="exp-card-meta">
+                <div class="exp-org-name">GirlScript Summer of Code (GSSoC)</div>
+                <div class="exp-role-name">Open Source Contributor</div>
+                <div class="exp-meta-row">
+                  <span class="exp-type-badge opensource">Open Source</span>
+                  <span class="exp-date-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    May 2026 – Present · 3 months
+                  </span>
+                  <span class="exp-live-badge">🟢 Ongoing</span>
+                </div>
+              </div>
+            </div>
+            <div class="exp-card-body">
+              <p>Actively contributing to open-source software projects through <strong>GSSoC 2026</strong>. Involved in AI Agents and Brand Ambassador Programs.</p>
+              <ul class="exp-bullets">
+                <li>Bug fixes, feature enhancements, and documentation improvements</li>
+                <li>Collaborating with global project maintainers via Git, GitHub, and code reviews</li>
+                <li>Participating in AI Agents and Brand Ambassador Programs</li>
+              </ul>
+              <div class="exp-skills">
+                <span>Git &amp; GitHub</span>
+                <span>Open Source</span>
+                <span>Code Review</span>
+                <span>Collaboration</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- McKinsey Forward Program -->
+        <div class="exp-entry reveal-up" style="--sticky-offset: 160px; z-index: 12;">
+          <div class="exp-timeline-line">
+            <div class="exp-dot dot-purple"></div>
+            <div class="exp-connector"></div>
+          </div>
+          <div class="exp-card glass-card">
+            <div class="exp-card-header">
+              <div class="exp-org-badge badge-mckinsey" style="overflow: hidden;">
+                <img src="assets/mckinsey.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="McKinsey" />
+              </div>
+              <div class="exp-card-meta">
+                <div class="exp-org-name">McKinsey &amp; Company</div>
+                <div class="exp-role-name">McKinsey Forward Program</div>
+                <div class="exp-meta-row">
+                  <span class="exp-type-badge program">Program</span>
+                  <span class="exp-date-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    Mar 2026 – Jul 2026 · 5 months
+                  </span>
+                  <span class="exp-loc-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    Remote
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="exp-card-body">
+              <p>Selected for the prestigious <strong>McKinsey Forward Program</strong>, a competitive leadership and problem-solving initiative by McKinsey &amp; Company for high-potential students globally. Completed with certification.</p>
+              <div class="exp-skills">
+                <span>Strategic Thinking</span>
+                <span>Problem Solving</span>
+                <span>Leadership</span>
+                <span>Business Fundamentals</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CITC -->
+        <div class="exp-entry reveal-up" style="--sticky-offset: 180px; z-index: 13;">
+          <div class="exp-timeline-line">
+            <div class="exp-dot dot-amber"></div>
+            <div class="exp-connector"></div>
+          </div>
+          <div class="exp-card glass-card">
+            <div class="exp-card-header">
+              <div class="exp-org-badge badge-citc" style="overflow: hidden;">
+                <img src="assets/citc.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="CITC" />
+              </div>
+              <div class="exp-card-meta">
+                <div class="exp-org-name">Civil Innovation and Technology Cell (CITC), NIT Agartala</div>
+                <div class="exp-role-name">WebOps Team Co-Lead &amp; Core Member</div>
+                <div class="exp-meta-row">
+                  <span class="exp-type-badge fulltime">Full-time</span>
+                  <span class="exp-date-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    Dec 2025 – Present · 8 months
+                  </span>
+                  <span class="exp-loc-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Agartala, Tripura
+                  </span>
+                  <span class="exp-live-badge">🟢 Ongoing</span>
+                </div>
+              </div>
+            </div>
+            <div class="exp-card-body">
+              <div class="exp-sub-roles">
+                <div class="exp-sub-role">
+                  <div class="sub-dot"></div>
+                  <div>
+                    <div class="sub-title">WebOps Team Co-Lead</div>
+                    <div class="sub-period">Jan 2026 – Present · 7 months</div>
+                    <div class="sub-desc">Leading web operations, technical workshops, and IT management for the innovation cell. Skills: Leadership, Web Development</div>
+                  </div>
+                </div>
+                <div class="exp-sub-role">
+                  <div class="sub-dot"></div>
+                  <div>
+                    <div class="sub-title">Core Member</div>
+                    <div class="sub-period">Dec 2025 – Present · 8 months</div>
+                    <div class="sub-desc">Core team contributions to technical events and innovation contests. Skills: Information Technology, Leadership</div>
+                  </div>
+                </div>
+              </div>
+              <div class="exp-skills">
+                <span>Web Development</span>
+                <span>Leadership</span>
+                <span>IT Management</span>
+                <span>Team Management</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- eDC IIT Delhi -->
+        <div class="exp-entry reveal-up" style="--sticky-offset: 200px; z-index: 14;">
+          <div class="exp-timeline-line">
+            <div class="exp-dot dot-cyan"></div>
+            <div class="exp-connector"></div>
+          </div>
+          <div class="exp-card glass-card">
+            <div class="exp-card-header">
+              <div class="exp-org-badge badge-edc" style="overflow: hidden;">
+                <img src="assets/edc.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="eDC" />
+              </div>
+              <div class="exp-card-meta">
+                <div class="exp-org-name">eDC — Entrepreneurship Development Cell, IIT Delhi</div>
+                <div class="exp-role-name">Campus Ambassador</div>
+                <div class="exp-meta-row">
+                  <span class="exp-type-badge parttime">Part-time</span>
+                  <span class="exp-date-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    Dec 2025 – Feb 2026 · 3 months
+                  </span>
+                  <span class="exp-loc-badge">Remote</span>
+                </div>
+              </div>
+            </div>
+            <div class="exp-card-body">
+              <p>Served as <strong>Campus Ambassador</strong> for the Entrepreneurship Development Cell at IIT Delhi — one of India's most prestigious entrepreneurship bodies.</p>
+              <div class="exp-skills">
+                <span>Leadership</span>
+                <span>Campus Outreach</span>
+                <span>Entrepreneurship</span>
+                <span>Communication</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ANARC -->
+        <div class="exp-entry reveal-up" style="--sticky-offset: 220px; z-index: 15;">
+          <div class="exp-timeline-line">
+            <div class="exp-dot dot-pink"></div>
+          </div>
+          <div class="exp-card glass-card">
+            <div class="exp-card-header">
+              <div class="exp-org-badge badge-anarc" style="overflow: hidden;">
+                <img src="assets/anarc.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="ANARC" />
+              </div>
+              <div class="exp-card-meta">
+                <div class="exp-org-name">Asimov NIT Agartala Robotics Club (ANARC)</div>
+                <div class="exp-role-name">Core Member &amp; Member</div>
+                <div class="exp-meta-row">
+                  <span class="exp-type-badge parttime">Part-time</span>
+                  <span class="exp-date-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    Apr 2025 – Present · 1 yr 4 months
+                  </span>
+                  <span class="exp-loc-badge">Agartala, Tripura</span>
+                  <span class="exp-live-badge"></span>
+                </div>
+              </div>
+            </div>
+            <div class="exp-card-body">
+              <div class="exp-sub-roles">
+                <div class="exp-sub-role">
+                  <div class="sub-dot"></div>
+                  <div>
+                    <div class="sub-title">Member (Current)</div>
+                    <div class="sub-period">Apr 2025 – Present · 1 yr 4 mos · Part-time</div>
+                    <div class="sub-desc">Active participation in robotics projects, hands-on workshops, and technical events.</div>
+                  </div>
+                </div>
+                <div class="exp-sub-role">
+                  <div class="sub-dot"></div>
+                  <div>
+                    <div class="sub-title">Core Member</div>
+                    <div class="sub-period">Apr 2025 – Dec 2025 · 9 months · Full-time</div>
+                    <div class="sub-desc">Engaged in hands-on robotics projects and workshops as core team member.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="exp-skills">
+                <span>Arduino IDE</span>
+                <span>Python</span>
+                <span>Robotics</span>
+                <span>Embedded Systems</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end exp-timeline -->
+    </div>
+  </section>
+
+  <!-- ═══ SKILLS ═══ -->
+  <section id="skills">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag reveal-up">Technical Arsenal</span>
+        <h2 class="section-title reveal-up">Skills &amp;<br/><em class="gradient-text">Technologies</em></h2>
+      </div>
+      <div class="skills-grid reveal-up" id="skillsGrid">
+        <div class="skill-cat glass-card">
+          <div class="scat-head"><div class="scat-icon lang-i">{ }</div><h3>Languages</h3></div>
+          <div class="skill-bars">
+            <div class="sbar"><span class="sb-name">Python</span><span class="sb-pct">90%</span><div class="sb-track"><div class="sb-fill" style="--w:90%"></div></div></div>
+            <div class="sbar"><span class="sb-name">C++</span><span class="sb-pct">85%</span><div class="sb-track"><div class="sb-fill" style="--w:85%"></div></div></div>
+            <div class="sbar"><span class="sb-name">JavaScript</span><span class="sb-pct">82%</span><div class="sb-track"><div class="sb-fill" style="--w:82%"></div></div></div>
+            <div class="sbar"><span class="sb-name">HTML/CSS</span><span class="sb-pct">88%</span><div class="sb-track"><div class="sb-fill" style="--w:88%"></div></div></div>
+            <div class="sbar"><span class="sb-name">SQL</span><span class="sb-pct">75%</span><div class="sb-track"><div class="sb-fill" style="--w:75%"></div></div></div>
+          </div>
+        </div>
+        <div class="skill-cat glass-card">
+          <div class="scat-head"><div class="scat-icon web-i">⚡</div><h3>Frameworks</h3></div>
+          <div class="skill-bars">
+            <div class="sbar"><span class="sb-name">React.js</span><span class="sb-pct">88%</span><div class="sb-track"><div class="sb-fill" style="--w:88%"></div></div></div>
+            <div class="sbar"><span class="sb-name">Next.js 14</span><span class="sb-pct">85%</span><div class="sb-track"><div class="sb-fill" style="--w:85%"></div></div></div>
+            <div class="sbar"><span class="sb-name">Flask</span><span class="sb-pct">83%</span><div class="sb-track"><div class="sb-fill" style="--w:83%"></div></div></div>
+            <div class="sbar"><span class="sb-name">Node.js</span><span class="sb-pct">78%</span><div class="sb-track"><div class="sb-fill" style="--w:78%"></div></div></div>
+            <div class="sbar"><span class="sb-name">TailwindCSS</span><span class="sb-pct">82%</span><div class="sb-track"><div class="sb-fill" style="--w:82%"></div></div></div>
+          </div>
+        </div>
+        <div class="skill-cat glass-card">
+          <div class="scat-head"><div class="scat-icon ai-i">🧠</div><h3>AI &amp; ML</h3></div>
+          <div class="skill-bars">
+            <div class="sbar"><span class="sb-name">Scikit-Learn</span><span class="sb-pct">85%</span><div class="sb-track"><div class="sb-fill" style="--w:85%"></div></div></div>
+            <div class="sbar"><span class="sb-name">Random Forest</span><span class="sb-pct">80%</span><div class="sb-track"><div class="sb-fill" style="--w:80%"></div></div></div>
+            <div class="sbar"><span class="sb-name">Google Gemini AI</span><span class="sb-pct">75%</span><div class="sb-track"><div class="sb-fill" style="--w:75%"></div></div></div>
+            <div class="sbar"><span class="sb-name">Data Structures</span><span class="sb-pct">78%</span><div class="sb-track"><div class="sb-fill" style="--w:78%"></div></div></div>
+            <div class="sbar"><span class="sb-name">Algorithms</span><span class="sb-pct">75%</span><div class="sb-track"><div class="sb-fill" style="--w:75%"></div></div></div>
+          </div>
+        </div>
+        <div class="skill-cat glass-card">
+          <div class="scat-head"><div class="scat-icon tools-i">🛠</div><h3>Tools &amp; DevOps</h3></div>
+          <div class="skill-bars">
+            <div class="sbar"><span class="sb-name">Git &amp; GitHub</span><span class="sb-pct">88%</span><div class="sb-track"><div class="sb-fill" style="--w:88%"></div></div></div>
+            <div class="sbar"><span class="sb-name">Vercel / Render</span><span class="sb-pct">80%</span><div class="sb-track"><div class="sb-fill" style="--w:80%"></div></div></div>
+            <div class="sbar"><span class="sb-name">Power BI</span><span class="sb-pct">72%</span><div class="sb-track"><div class="sb-fill" style="--w:72%"></div></div></div>
+            <div class="sbar"><span class="sb-name">AutoCAD</span><span class="sb-pct">65%</span><div class="sb-track"><div class="sb-fill" style="--w:65%"></div></div></div>
+            <div class="sbar"><span class="sb-name">MS Office Suite</span><span class="sb-pct">85%</span><div class="sb-track"><div class="sb-fill" style="--w:85%"></div></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="tech-bubbles reveal-up">
+        <div class="tech-bubble">Python</div><div class="tech-bubble">React</div>
+        <div class="tech-bubble">Next.js</div><div class="tech-bubble">Flask</div>
+        <div class="tech-bubble">C++</div><div class="tech-bubble">ML</div>
+        <div class="tech-bubble">TypeScript</div><div class="tech-bubble">Gemini AI</div>
+        <div class="tech-bubble">GitHub</div><div class="tech-bubble">Vercel</div>
+        <div class="tech-bubble">SQL</div><div class="tech-bubble">Arduino</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PROJECTS ═══ -->
+  <section id="projects">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag reveal-up">Featured Work</span>
+        <h2 class="section-title reveal-up">Projects that<br/><em class="gradient-text">Shape Tomorrow</em></h2>
+      </div>
+      <div class="projects-wrapper">
+
+        <!-- Hireflow.AI -->
+        <div class="project-item glass-card reveal-up" style="--sticky-offset: 120px;">
+          <div class="proj-img-col">
+            <img src="assets/hireflow_img.png" alt="Hireflow.AI" class="proj-img" />
+            <div class="proj-overlay">
+              <div class="proj-links">
+                <a href="https://github.com/Prince-1302/Hireflow.AI" target="_blank" class="proj-overlay-btn">View GitHub</a>
+                <a href="https://hireflow-ai-sandy.vercel.app" target="_blank" class="proj-overlay-btn live-btn">Live Prototype ↗</a>
+              </div>
+            </div>
+          </div>
+          <div class="proj-content-col">
+            <div class="proj-year-tag">2026</div>
+            <div class="proj-badges">
+              <span class="pb ai">AI/ML</span>
+              <span class="pb web">Full-Stack</span>
+            </div>
+            <h3 class="proj-title">Hireflow.AI</h3>
+            <p class="proj-sub">End-to-End AI-Powered Recruitment Platform</p>
+            <p class="proj-desc">Designed to automate sourcing, screening, and interview scheduling, drastically reducing time-to-hire and improving candidate quality.</p>
+            <div class="proj-stack-row">
+              <span>Next.js 14</span><span>React</span><span>AI Agents</span><span>TailwindCSS</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-item glass-card reveal-up" style="--sticky-offset: 140px;">
+          <div class="proj-img-col">
+            <img src="assets/trafficsense_img.png" alt="TrafficSense" class="proj-img" />
+            <div class="proj-overlay">
+              <div class="proj-links">
+                <a href="https://github.com/Prince-1302" target="_blank" class="proj-overlay-btn">View GitHub</a>
+                <a href="https://trafficsense-chi.vercel.app/" target="_blank" class="proj-overlay-btn live-btn">Live Prototype ↗</a>
+              </div>
+            </div>
+          </div>
+          <div class="proj-content-col">
+            <div class="proj-year-tag">2026</div>
+            <div class="proj-badges">
+              <span class="pb ai">AI/ML</span>
+              <span class="pb web">Full-Stack</span>
+              <span class="pb civic">Civic Tech</span>
+            </div>
+            <h3 class="proj-title">TrafficSense</h3>
+            <p class="proj-sub">AI-Powered Unified Traffic Mitigation Platform</p>
+            <p class="proj-desc">Built an AI-powered traffic management platform with role-based dashboards for administrators, field officers, and citizens. ML models (Random Forest + Scikit-Learn) predict traffic incident priority and impact scores. Integrated Flask REST APIs, Leaflet.js maps, OpenStreetMap, and Chart.js with offline fallback.</p>
+            <div class="proj-stack-row">
+              <span>Flask</span><span>Scikit-Learn</span><span>Leaflet.js</span><span>Chart.js</span><span>HTML/CSS/JS</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-item glass-card reveal-up" style="--sticky-offset: 160px;">
+          <div class="proj-content-col">
+            <div class="proj-year-tag">2025</div>
+            <div class="proj-badges">
+              <span class="pb ai">AI/ML</span>
+              <span class="pb social">Social Impact</span>
+              <span class="pb web">Full-Stack</span>
+            </div>
+            <h3 class="proj-title">ShareBite</h3>
+            <p class="proj-sub">AI-Powered Food Waste Management System</p>
+            <p class="proj-desc">Full-stack AI platform connecting NGOs, restaurants, and administrators to reduce food waste. ML models (Random Forest) for waste prediction and risk analysis. Google Gemini AI integration for intelligent recipe generation. Deployed on Vercel + Render with Next.js 14, TypeScript, Tailwind CSS.</p>
+            <div class="proj-stack-row">
+              <span>Next.js 14</span><span>TypeScript</span><span>Gemini AI</span><span>Flask</span><span>Scikit-Learn</span>
+            </div>
+          </div>
+          <div class="proj-img-col">
+            <img src="assets/sharebite_img.png" alt="ShareBite" class="proj-img" />
+            <div class="proj-overlay">
+              <div class="proj-links">
+                <a href="https://github.com/Prince-1302" target="_blank" class="proj-overlay-btn">View GitHub</a>
+                <a href="https://share-bite-theta.vercel.app/" target="_blank" class="proj-overlay-btn live-btn">Live Prototype ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ACHIEVEMENTS ═══ -->
+  <section id="achievements">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag reveal-up">Recognition</span>
+        <h2 class="section-title reveal-up">Achievements &amp;<br/><em class="gradient-text">Milestones</em></h2>
+      </div>
+      <div class="ach-grid">
+        <div class="ach-card glass-card reveal-up">
+          <div class="ach-icon">🏆</div>
+          <div class="ach-badge-label national">National Finalist — Top 8</div>
+          <h3>L&T Createch 2026</h3>
+          <p>Hackathon by <strong>Larsen &amp; Toubro</strong> — top 8 teams nationally</p>
+          <div class="ach-year-chip">2026</div>
+        </div>
+        <div class="ach-card glass-card reveal-up">
+          <div class="ach-icon">🥈</div>
+          <div class="ach-badge-label semi">Semi-Finalist</div>
+          <h3>ET Gen AI Hackathon 2026</h3>
+          <p>Conducted by <strong>The Economic Times</strong> — Gen AI category</p>
+          <div class="ach-year-chip">2026</div>
+        </div>
+        <div class="ach-card glass-card reveal-up">
+          <div class="ach-icon">🥇</div>
+          <div class="ach-badge-label winner">Winner</div>
+          <h3>Arjuna 2.0 Hackathon</h3>
+          <p>Civil Innovation &amp; Technology Cell, <strong>NIT Agartala</strong></p>
+          <div class="ach-year-chip">2025</div>
+        </div>
+        <div class="ach-card glass-card reveal-up">
+          <div class="ach-icon">🚀</div>
+          <div class="ach-badge-label grand">Grand Finalist</div>
+          <h3>MumbaiHacks 2025</h3>
+          <p>Tech Entrepreneurs Association of <strong>Mumbai</strong></p>
+          <div class="ach-year-chip">2025</div>
+        </div>
+        <div class="ach-card glass-card reveal-up">
+          <div class="ach-icon">📐</div>
+          <div class="ach-badge-label jee">Top 7%</div>
+          <h3>JEE Mains</h3>
+          <p>Joint Entrance Examination — secured rank in <strong>top 7%</strong></p>
+          <div class="ach-year-chip">2024</div>
+        </div>
+        <div class="ach-card glass-card reveal-up">
+          <div class="ach-icon">🌐</div>
+          <div class="ach-badge-label open">Contributor</div>
+          <h3>GSSoC 2026</h3>
+          <p>GirlScript Summer of Code — active open source <strong>contributor</strong></p>
+          <div class="ach-year-chip">2026</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ EDUCATION ═══ -->
+  <section id="education">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag reveal-up">Academic Journey</span>
+        <h2 class="section-title reveal-up">Education &amp;<br/><em class="gradient-text">Foundation</em></h2>
+      </div>
+      <div class="edu-cards">
+        <div class="edu-card glass-card active-edu reveal-up">
+          <div class="edu-left">
+            <div class="edu-badge nit">NIT</div>
+            <div class="edu-vline"></div>
+          </div>
+          <div class="edu-right">
+            <div class="edu-period-tag">2024 — 2028</div>
+            <h3>National Institute of Technology, Agartala</h3>
+            <p class="edu-degree">B.Tech — Civil Engineering</p>
+            <div class="edu-score-row">
+              <div class="edu-score-pill">
+                <span class="esp-val">8.5</span><span class="esp-lab">CGPA</span>
+              </div>
+            </div>
+            <p class="edu-desc">Pursuing B.Tech while actively building AI projects, leading the WebOps Team at CITC, and contributing to robotics at ANARC. Top competitive hackathon performer nationally.</p>
+            <div class="edu-tags">
+              <span>AI &amp; Web Dev</span><span>WebOps Co-Lead</span><span>Robotics Club</span><span>Hackathon Competitor</span>
+            </div>
+          </div>
+        </div>
+        <div class="edu-card glass-card reveal-up">
+          <div class="edu-left">
+            <div class="edu-badge sps">XII</div>
+            <div class="edu-vline"></div>
+          </div>
+          <div class="edu-right">
+            <div class="edu-period-tag">2023</div>
+            <h3>SPS Seminari +2, Sonpur</h3>
+            <p class="edu-degree">Senior Secondary (XII) — BSEB</p>
+            <div class="edu-score-row">
+              <div class="edu-score-pill"><span class="esp-val">78%</span><span class="esp-lab">Score</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="edu-card glass-card reveal-up">
+          <div class="edu-left">
+            <div class="edu-badge mlz">X</div>
+          </div>
+          <div class="edu-right">
+            <div class="edu-period-tag">2021</div>
+            <h3>Mount Litera Zee School, Hajipur</h3>
+            <p class="edu-degree">Secondary (X) — CBSE</p>
+            <div class="edu-score-row">
+              <div class="edu-score-pill"><span class="esp-val">90.2%</span><span class="esp-lab">Score</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONTACT ═══ -->
+  <section id="contact">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag reveal-up">Get In Touch</span>
+        <h2 class="section-title reveal-up">Let's Build<br/><em class="gradient-text">Something Great</em></h2>
+        <p class="section-desc reveal-up">Whether you have a project, an internship opportunity, or just want to connect — my inbox is always open.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-left reveal-left">
+          <a href="mailto:princekumarg197@gmail.com" class="clink-card glass-card">
+            <div class="clc-icon email-i">✉</div>
+            <div class="clc-body"><div class="clc-lab">Email</div><div class="clc-val">princekumarg197@gmail.com</div></div>
+            <svg class="clc-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+          <a href="tel:+917765986735" class="clink-card glass-card">
+            <div class="clc-icon phone-i">📞</div>
+            <div class="clc-body"><div class="clc-lab">Phone</div><div class="clc-val">+91-7765986735</div></div>
+            <svg class="clc-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/prince-kumar-ab3360349" target="_blank" class="clink-card glass-card">
+            <div class="clc-icon li-i">in</div>
+            <div class="clc-body"><div class="clc-lab">LinkedIn</div><div class="clc-val">linkedin.com/in/prince-kumar</div></div>
+            <svg class="clc-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+          <a href="https://github.com/Prince-1302" target="_blank" class="clink-card glass-card">
+            <div class="clc-icon gh-i">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </div>
+            <div class="clc-body"><div class="clc-lab">GitHub</div><div class="clc-val">github.com/Prince-1302</div></div>
+            <svg class="clc-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
+        <div class="contact-right reveal-right">
+          <form class="contact-form glass-card" id="contactForm">
+            <div class="cf-head">
+              <h3>Send a Message</h3>
+              <p>I'll get back to you within 24 hours.</p>
+            </div>
+            <div class="cf-group">
+              <label for="cName">Full Name</label>
+              <input type="text" id="cName" placeholder="John Doe" />
+            </div>
+            <div class="cf-group">
+              <label for="cEmail">Email</label>
+              <input type="email" id="cEmail" placeholder="john@example.com" />
+            </div>
+            <div class="cf-group">
+              <label for="cSub">Subject</label>
+              <input type="text" id="cSub" placeholder="Internship / Collaboration / Project" />
+            </div>
+            <div class="cf-group">
+              <label for="cMsg">Message</label>
+              <textarea id="cMsg" rows="4" placeholder="Tell me about your opportunity or idea..."></textarea>
+            </div>
+            <button type="submit" class="btn-primary cf-submit">
+              <span>Send Message</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+            <div class="cf-success" id="cfSuccess">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Message sent! I'll be in touch soon.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <div class="footer-logo"><span class="logo-bracket">&lt;</span>PK<span class="logo-bracket">/&gt;</span></div>
+      <p class="footer-tag">Built with passion. Designed for impact. ✨</p>
+      <div class="footer-links">
+        <a href="https://github.com/Prince-1302" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/prince-kumar-ab3360349" target="_blank">LinkedIn</a>
+        <a href="mailto:princekumarg197@gmail.com">Email</a>
+      </div>
+      <p class="footer-copy">© 2026 Prince Kumar · All rights reserved · NIT Agartala</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
